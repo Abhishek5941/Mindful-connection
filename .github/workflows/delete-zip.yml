@@ -1,0 +1,19 @@
+name: Delete Zip File
+
+on:
+  workflow_dispatch:
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Delete ZIP
+        run: |
+          git rm mindful-connections.zip
+          git config user.name "Your Name"
+          git config user.email "your-email@example.com"
+          git commit -m "Deleted ZIP"
+          git push
